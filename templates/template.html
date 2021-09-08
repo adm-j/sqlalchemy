@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask Template Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+      .container {
+        max-width: 500px;
+        padding-top: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Enter items for list</h1>
+      <form method="POST">
+        <input type="text" name="file"/>
+        <button type="submit">Enter</button>
+      </form>
+      <h3>List below:</h3>
+      <ul id="navigation">
+        {% for item in file %}
+        <li>{{item[1]}}</li>
+        {% endfor %}
+<!--        <p>{{file}}</p>-->
+      </ul>
+      <button id="refresh">Refresh</button>
+    </div>
+  </body>
+<script>
+  document.getElementById("refresh").addEventListener("click", ()=> {
+  window.location.reload()
+  return false;
+  });
+</script>
+</html>
